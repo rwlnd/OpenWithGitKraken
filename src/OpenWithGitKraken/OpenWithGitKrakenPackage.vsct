@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+
+	<Commands package="guidOpenWithGitKrakenPackage">
+		<Groups>
+			<Group guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenGroup" />
+		</Groups>
+		
+		<Buttons>
+			<Button guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenButton" type="Button">
+				<Icon guid="guidImages" id="bmpPic1" />
+				<Strings>
+					<ButtonText>Open With GitKraken</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+
+		<Bitmaps>
+			<Bitmap guid="guidImages" href="Resources\OpenWithGitKraken.png" usedList="bmpPic1"/>
+		</Bitmaps>
+	</Commands>
+
+	<CommandPlacements>
+		<!-- group placement on solution context menu -->
+		<CommandPlacement guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenGroup" priority="0x0600">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNNODE"/>
+		</CommandPlacement>
+
+		<!-- group placement on project context menu -->
+		<CommandPlacement guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenGroup" priority="0x0600">
+			<!-- project context menu -->
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE"/>
+		</CommandPlacement>
+		<CommandPlacement guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenGroup" priority="0x0600">
+			<!-- web project context menu -->
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_WEBPROJECT"/>
+		</CommandPlacement>
+
+		<!-- button placement -->
+		<CommandPlacement guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenButton" priority="0x0100" >
+			<Parent guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenGroup"/>
+		</CommandPlacement>
+	</CommandPlacements>
+
+	<Symbols>
+		<!-- This is the package guid. -->
+		<GuidSymbol name="guidOpenWithGitKrakenPackage" value="{bdc0ff4d-06dc-48c1-b8c1-5674a6fc19d0}" />
+
+		<!-- This is the guid used to group the menu commands together -->
+		<GuidSymbol name="guidOpenWithGitKrakenPackageCmdSet" value="{07eba17a-57a2-465e-b9b9-6aa91293a3f8}">
+			<IDSymbol name="OpenWithGitKrakenGroup" value="0x1000" />
+			<IDSymbol name="OpenWithGitKrakenButton" value="0x0100" />
+		</GuidSymbol>
+
+		<GuidSymbol name="guidImages" value="{2c72657a-90e3-4558-846c-be739b8b4995}" >
+			<IDSymbol name="bmpPic1" value="1" />
+		</GuidSymbol>
+	</Symbols>
+</CommandTable>
