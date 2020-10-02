@@ -73,7 +73,8 @@ namespace OpenWithGitKraken.Utils
 
             if (dte.Solution != null && !string.IsNullOrEmpty(dte.Solution.FullName))
             {
-                return Path.GetDirectoryName(dte.Solution.FullName);
+                return Directory.Exists(dte.Solution.FullName) ? dte.Solution.FullName : 
+                    Path.GetDirectoryName(dte.Solution.FullName);
             }
 
             return null;
