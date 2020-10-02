@@ -1,10 +1,11 @@
 ﻿using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.ComponentModel.Design;
-using System.Globalization;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using EnvDTE;
+using EnvDTE80;
+using OpenWithGitKraken.Utils;
+using Process = System.Diagnostics.Process;
 using Task = System.Threading.Tasks.Task;
 
 namespace OpenWithGitKraken
@@ -29,6 +30,12 @@ namespace OpenWithGitKraken
         /// </summary>
         private readonly AsyncPackage package;
 
+
+        /// <summary>
+        /// Reference to the the top-level object in the Visual Studio automation object model
+        /// </summary>
+        private readonly DTE2 _dte;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenWithGitKraken"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
@@ -37,6 +44,8 @@ namespace OpenWithGitKraken
         /// <param name="commandService">Command service to add command to, not null.</param>
         private OpenWithGitKraken(AsyncPackage package, OleMenuCommandService commandService)
         {
+            _dte = Package.GetGlobalService(typeof(DTE)) as DTE2;
+
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
@@ -81,25 +90,31 @@ namespace OpenWithGitKraken
 
         /// <summary>
         /// This function is the callback used to execute the command when the menu item is clicked.
-        /// See the constructor to see how the menu item is associated with this function using
-        /// OleMenuCommandService service and MenuCommand class.
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Event args.</param>
         private void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "OpenWithGitKraken";
 
-            // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                this.package,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            try
+            {
+                var command = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\gitkraken\\update.exe";
+                var gitFolder = GitRepository.GetFromSelection(_dte);
+                var arguments = $"--processStart=gitkraken.exe --process-start-args=\"-p \"{gitFolder}\"";
+
+                var start = new ProcessStartInfo(command, arguments)
+                {
+                    LoadUserProfile = true,
+                    UseShellExecute = false
+                };
+
+                using (Process.Start(start)) { }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }
