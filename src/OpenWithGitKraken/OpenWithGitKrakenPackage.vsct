@@ -10,7 +10,7 @@
 		
 		<Buttons>
 			<Button guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenButton" type="Button">
-				<Icon guid="guidImages" id="bmpPic1" />
+				<Icon guid="guidImages" id="gitkrakenLogo" />
 				<Strings>
 					<ButtonText>Open With GitKraken</ButtonText>
 				</Strings>
@@ -18,7 +18,7 @@
 		</Buttons>
 
 		<Bitmaps>
-			<Bitmap guid="guidImages" href="Resources\OpenWithGitKraken.png" usedList="bmpPic1"/>
+			<Bitmap guid="guidImages" href="Resources\gitkraken-logo.png" usedList="gitkrakenLogo"/>
 		</Bitmaps>
 	</Commands>
 
@@ -55,7 +55,7 @@
 		</GuidSymbol>
 
 		<GuidSymbol name="guidImages" value="{2c72657a-90e3-4558-846c-be739b8b4995}" >
-			<IDSymbol name="bmpPic1" value="1" />
+			<IDSymbol name="gitkrakenLogo" value="1" />
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>
