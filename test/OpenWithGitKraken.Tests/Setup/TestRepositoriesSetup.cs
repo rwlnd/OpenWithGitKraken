@@ -1,8 +1,8 @@
 ﻿using System.IO;
 
-namespace OpenWithGitKraken.Tests
+namespace OpenWithGitKraken.Tests.Setup
 {
-    public static class TestSetup
+    public static class TestRepositoriesSetup
     {
         /// <summary>
         /// Sets up the necessary folders to test the repository selection logic
@@ -28,6 +28,6 @@ namespace OpenWithGitKraken.Tests
 
 
         public static string RootDirectory => Directory.GetCurrentDirectory();
-        public static string TestSetupRootDirectory => $@"{RootDirectory}\TestSetups";
+        public static string TestSetupRootDirectory => $@"{RootDirectory}\TestRepositories";
     }
 }

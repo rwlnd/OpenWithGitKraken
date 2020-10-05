@@ -1,20 +1,22 @@
 using EnvDTE;
 using EnvDTE80;
 using Moq;
+using OpenWithGitKraken.Tests.Fixtures;
+using OpenWithGitKraken.Tests.Setup;
 using OpenWithGitKraken.Utils;
 using Xunit;
 
 namespace OpenWithGitKraken.Tests
 {
     [VsTestSettings(UIThread = true)]
+    [Collection(CollectionName.SetupTestRepositories)]
     public class When_solution_is_git_repository
     {
         private readonly string _rootDir;
 
         public When_solution_is_git_repository()
         {
-            TestSetup.EnsureRepositoriesTestSetup();
-            _rootDir = TestSetup.TestSetupRootDirectory;
+            _rootDir = TestRepositoriesSetup.TestSetupRootDirectory;
         }
 
         [VsFact(Version = "2019")]
