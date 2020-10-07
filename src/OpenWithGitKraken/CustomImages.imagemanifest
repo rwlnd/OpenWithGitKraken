@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="Resources" Value="/OpenWithGitKraken;Component/Resources" />
+    <Guid Name="CustomImages" Value="{5a3b4250-aeaf-4e9e-85ad-a5c50e7406e6}" />
+    <ID Name="GitKrakenMenuIcon" Value="1" />
+  </Symbols>
+  <Images>
+    <Image Guid="$(CustomImages)" ID="$(GitKrakenMenuIcon)" AllowColorInversion="false" >
+      <Source Uri="$(Resources)/gitkraken-menu-icon.png">
+        <Size Value="16" />
+      </Source>
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

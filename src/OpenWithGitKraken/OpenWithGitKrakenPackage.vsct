@@ -10,16 +10,13 @@
 		
 		<Buttons>
 			<Button guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenButton" type="Button">
-				<Icon guid="guidImages" id="gitkrakenLogo" />
+				<Icon guid="CustomImages" id="GitKrakenMenuIcon"/>
+				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
 					<ButtonText>Open With GitKraken</ButtonText>
 				</Strings>
 			</Button>
 		</Buttons>
-
-		<Bitmaps>
-			<Bitmap guid="guidImages" href="Resources\gitkraken-logo.png" usedList="gitkrakenLogo"/>
-		</Bitmaps>
 	</Commands>
 
 	<CommandPlacements>
@@ -45,17 +42,18 @@
 	</CommandPlacements>
 
 	<Symbols>
-		<!-- This is the package guid. -->
+		<!-- package guid. -->
 		<GuidSymbol name="guidOpenWithGitKrakenPackage" value="{bdc0ff4d-06dc-48c1-b8c1-5674a6fc19d0}" />
 
-		<!-- This is the guid used to group the menu commands together -->
+		<!-- menu commands group guid -->
 		<GuidSymbol name="guidOpenWithGitKrakenPackageCmdSet" value="{07eba17a-57a2-465e-b9b9-6aa91293a3f8}">
 			<IDSymbol name="OpenWithGitKrakenGroup" value="0x1000" />
 			<IDSymbol name="OpenWithGitKrakenButton" value="0x0100" />
 		</GuidSymbol>
 
-		<GuidSymbol name="guidImages" value="{2c72657a-90e3-4558-846c-be739b8b4995}" >
-			<IDSymbol name="gitkrakenLogo" value="1" />
+		<!-- custom images guid -->
+		<GuidSymbol name="CustomImages" value="{5a3b4250-aeaf-4e9e-85ad-a5c50e7406e6}">
+			<IDSymbol name="GitKrakenMenuIcon" value="1" />
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>
