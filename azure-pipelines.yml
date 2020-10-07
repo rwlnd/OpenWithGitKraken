@@ -1,0 +1,23 @@
+trigger:
+  - '*' # Run the pipeline for each commit
+
+pool:
+  vmImage: 'windows-2019' # Windows Server 2019 with Visual Studio 2019
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+
+steps:
+  - task: NuGetCommand@2
+    inputs:
+      command: 'restore'
+
+  - task: VSBuild@1
+    inputs:
+      solution: '**\*.sln'
+      maximumCpuCount: true
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
