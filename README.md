@@ -4,7 +4,7 @@ A Visual Studio Extension that opens the associated git repo of a project or sol
 
 [![Build Status](https://dev.azure.com/codestackbv/OpenWithGitKraken/_apis/build/status/rwlnd.OpenWithGitKraken?branchName=master)](https://dev.azure.com/codestackbv/OpenWithGitKraken/_build/latest?definitionId=1&branchName=master)
 
-Download the latest version from the [Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/)
+Download the latest version from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=StevenRoeland.OpenWithGitKraken)
 
 ## How it looks
 
