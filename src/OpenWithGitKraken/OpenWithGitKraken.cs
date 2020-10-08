@@ -30,7 +30,6 @@ namespace OpenWithGitKraken
         /// </summary>
         private readonly AsyncPackage package;
 
-
         /// <summary>
         /// Reference to the the top-level object in the Visual Studio automation object model
         /// </summary>
@@ -38,10 +37,7 @@ namespace OpenWithGitKraken
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenWithGitKraken"/> class.
-        /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
-        /// <param name="package">Owner package, not null.</param>
-        /// <param name="commandService">Command service to add command to, not null.</param>
         private OpenWithGitKraken(AsyncPackage package, OleMenuCommandService commandService)
         {
             _dte = Package.GetGlobalService(typeof(DTE)) as DTE2;
@@ -66,7 +62,7 @@ namespace OpenWithGitKraken
         /// <summary>
         /// Gets the service provider from the owner package.
         /// </summary>
-        private Microsoft.VisualStudio.Shell.IAsyncServiceProvider ServiceProvider
+        private IAsyncServiceProvider ServiceProvider
         {
             get
             {
@@ -77,11 +73,8 @@ namespace OpenWithGitKraken
         /// <summary>
         /// Initializes the singleton instance of the command.
         /// </summary>
-        /// <param name="package">Owner package, not null.</param>
         public static async Task InitializeAsync(AsyncPackage package)
         {
-            // Switch to the main thread - the call to AddCommand in OpenWithGitKraken's constructor requires
-            // the UI thread.
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
@@ -91,8 +84,6 @@ namespace OpenWithGitKraken
         /// <summary>
         /// This function is the callback used to execute the command when the menu item is clicked.
         /// </summary>
-        /// <param name="sender">Event sender.</param>
-        /// <param name="e">Event args.</param>
         private void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
