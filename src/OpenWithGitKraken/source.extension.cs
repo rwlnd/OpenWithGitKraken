@@ -11,7 +11,7 @@ namespace OpenWithGitKraken
         public const string Name = "Open With GitKraken";
         public const string Description = @"Opens the associated git repo of a project or solution with GitKraken.";
         public const string Language = "en-US";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public const string Author = "Steven Roeland";
         public const string Tags = "Solution Explorer, gitkraken, git";
     }

@@ -7,16 +7,17 @@
 		<Groups>
 			<Group guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenGroup" />
 		</Groups>
-		
 		<Buttons>
 			<Button guid="guidOpenWithGitKrakenPackageCmdSet" id="OpenWithGitKrakenButton" type="Button">
-				<Icon guid="CustomImages" id="GitKrakenMenuIcon"/>
-				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Icon guid="guidImages" id="GitKrakenMenuIcon" />
 				<Strings>
 					<ButtonText>Open With GitKraken</ButtonText>
 				</Strings>
 			</Button>
 		</Buttons>
+		<Bitmaps>
+			<Bitmap guid="guidImages" href="Resources\gitkraken-menu-icon.png" usedList="GitKrakenMenuIcon"/>
+		</Bitmaps>
 	</Commands>
 
 	<CommandPlacements>
@@ -51,8 +52,8 @@
 			<IDSymbol name="OpenWithGitKrakenButton" value="0x0100" />
 		</GuidSymbol>
 
-		<!-- custom images guid -->
-		<GuidSymbol name="CustomImages" value="{5a3b4250-aeaf-4e9e-85ad-a5c50e7406e6}">
+		<!-- images guid -->
+		<GuidSymbol name="guidImages" value="{2c72657a-90e3-4558-846c-be739b8b4995}" >
 			<IDSymbol name="GitKrakenMenuIcon" value="1" />
 		</GuidSymbol>
 	</Symbols>
