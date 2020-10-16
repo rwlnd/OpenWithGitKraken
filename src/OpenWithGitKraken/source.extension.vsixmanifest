@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="OpenWithGitKraken.d81d0fd2-99f5-4b73-8380-429ab6c8babd" Version="1.0.1" Language="en-US" Publisher="Steven Roeland" />
+        <Identity Id="OpenWithGitKraken.d81d0fd2-99f5-4b73-8380-429ab6c8babd" Version="1.0.2" Language="en-US" Publisher="Steven Roeland" />
         <DisplayName>Open With GitKraken</DisplayName>
         <Description xml:space="preserve">Opens the associated git repo of a project or solution with GitKraken.</Description>
         <MoreInfo>https://github.com/rwlnd/OpenWithGitKraken</MoreInfo>
