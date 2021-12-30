@@ -26,6 +26,7 @@ At the risk of stating the obvious, you need to have GitKraken installed at its 
 
 - Visual Studio 2017
 - Visual Studio 2019
+- Visual Studio 2022
 
 ## Why
 
